@@ -38,13 +38,8 @@ export const formatData = (result) => {
   return formattedData;
 };
 
-export const setPromises = (
-  API_KEY,
-  postUrl,
-  fetchPromises,
-  totalPages,
-  result
-) => {
+export const setPromises = (API_KEY, postUrl, totalPages, result) => {
+  let fetchPromises = [];
   for (let x = 1; x <= totalPages; x++) {
     const pageOptions = {
       method: "POST",
@@ -69,4 +64,5 @@ export const setPromises = (
 
     fetchPromises.push(fetchPromise);
   }
+  return fetchPromises;
 };
